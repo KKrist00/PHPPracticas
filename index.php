@@ -11,10 +11,11 @@ echo "Bienvenidos Php";
 
 <html>
     <body>
-
+        </br>
+        </br>
         <form action="PHPPracticas.php" method="post">
-            Nombre: <input type="text" name="nombre"><br>
-            E-mail: <input type="text" name="email"><br>
+            Nombre: <input type="text" name="nombre"></br>
+            E-mail: <input type="text" name="email"></br>
                 <input type="submit"> enviaR
         </form>
 
