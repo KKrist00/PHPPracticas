@@ -24,13 +24,24 @@
 
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-                <h3 class="mb-0">Colegio San Isidoro</h3>
-                <div class="subheading mb-3">Primaria</div>
+                <h3 class="mb-0">IES Juan Pulido Castro</h3>
+                <div class="subheading mb-3">Segundaria</div>
             </div>
             <div class="resume-date text-md-right">
-                <span class="text-primary">1992-1999</span>
+                <span class="text-primary">2000-2008</span>
             </div>
         </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+                <h3 class="mb-0">IES Villa Aguimes</h3>
+                <div class="subheading mb-3">Enseñanza Profesional</div>
+            </div>
+            <div class="resume-date text-md-right">
+                <span class="text-primary">2009-2011</span>
+            </div>
+        </div>
+
 
     </div>
 </section>

@@ -1,15 +1,18 @@
 <?php
-//abrir directorios de ejemplos
-$dir = opendir("./ejemplos");
+function listaEjemplos()
+{
+// abrir directorio de ejemplos
+    $dir = opendir("./ejemplos");
+    while ($fichero = readdir($dir)) {
+        if ($fichero != "." && $fichero != "..")
+            $ejemplos[] = substr($fichero, 0, -4);
+    }
+    closedir($dir);
+    return $ejemplos;
+}
 
-while($fichero = readdir($dir)) {
-
-    if ($fichero != "." && $fichero != "..")
-
-        $ejemplos[] = substr($fichero,  o, length -4);
-
-                }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +30,10 @@ while($fichero = readdir($dir)) {
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
@@ -42,52 +47,61 @@ while($fichero = readdir($dir)) {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Empezar Bootstrap</span>
+        <span class="d-block d-lg-none">Start Bootstrap</span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
         </span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
 
+            <?php
+            foreach (listaEjemplos() as $ficheroEjemplo){
+            ?>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="?seccion=1">Acerca de...</a></a>
+                <a class="nav-link js-scroll-trigger" href="?seccion=<?php echo $ficheroEjemplo.".php" ?>"><?php echo $ficheroEjemplo ?></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="?seccion=2">Experienc&iacute;a</a></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="?seccion=3">Formulario</a></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="?seccion=4">Educaci&oacute;n</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#skills">Habilidades</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#interests">Intereces</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#awards">Premios</a>
-            </li>
+            <?php
+           }
+            ?>
         </ul>
     </div>
 </nav>
 
-
 <div class="container-fluid p-0">
+
     <?php
-    if (isset($_GET['seccion']) && !empty($_GET['seccion']))
-    {
-        include("ejemplo".$_GET['seccion'].".php");
+    if(isset($_GET["seccion"]) && !empty($_GET["seccion"])){
+    include ("ejemplos/".$_GET["seccion"]);
     }
     ?>
 
-
+            <!--
+             <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">Acerca de mi</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link js-scroll-trigger" href="?seccion=1">Formulario</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link js-scroll-trigger" href="?seccion=2">Ejemplo 2</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+             </li>-->
+        </ul>
+    </div>
+</nav>
 
     <!--<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
       <div class="my-auto">
