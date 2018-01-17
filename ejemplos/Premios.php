@@ -11,10 +11,6 @@
                 <i class="fa-li fa fa-trophy text-warning"></i>
                 1<sup>st</sup>
                 Manejo de software</li>
-            <li>
-                <i class="fa-li fa fa-trophy text-warning"></i>
-                3<sup>rd</sup>
-                Place - James Buchanan High School - Hackathon 2005</li>
         </ul>
     </div>
 </section>
