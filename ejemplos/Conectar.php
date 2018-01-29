@@ -1,5 +1,28 @@
 <!DOCTYPE html>
 <html>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #1d2124;
+        text-align: left;
+        padding: 12px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ffc107;
+    }
+</style>
+
+        <h2 class="mb-0">Consulta Usuarios</h2>
+
+    </br>
+
+<body>
 
 <?php
 
@@ -18,42 +41,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 
     die("Connection failed: " . $conn->connect_error);
-}
 
-$sql = "SELECT * FROM $tabla";
+         echo "Conexion Error !!!";
 
-$result = $conn->query($sql);
+} else {
+                echo "Conexion Correcta !!!";
+            }
+            $conn->close();
+            ?>
 
-if ($result->num_rows > 0) {
-
-    // output data of each row
-
-    while ($row = $result->fetch_assoc()) {
-
-      echo"<ul>";
-
-
-    ?>
-
-        <input type='hidden' name='id' value='".$row["id"]."'>
-
-   <input type='submit' value='Eliminar'></center></td><td></ul></table>
-
-        <?php
-
-        if (isset($_POST["id"])) {
-
-            $id = $_POST["id"];
-
-            $consulta = "DELETE FROM users WHERE id=$id";
-
-        }
-
-    }
-}
-
-    $conn->close();
-?>
 
 </body>
+
 </html>
