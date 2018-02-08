@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Actualizacion completada.</title>
+    <title>Borrado.</title>
     <META name='robot' content='noindex, nofollow'>
 </head>
 
@@ -12,9 +12,6 @@
 // Actualizamos en funcion del id que recibimos
 
 $id = $_POST['id'];
-$titulo = $_POST['title'];
-$desc = $_POST['post'];
-$fecha = date("Y-m-d H:i:s");
 
 $servername = "localhost";
 $username = "root";
@@ -31,13 +28,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql= " Update ".$tabla." Set title='".$titulo."',post='".$desc."',created_at='".$fecha."', updated_at='".$fecha."' where id='".$id."'";
+$sql= "DELETE from $tabla where id='".$id."'";;
 
 $result = $conn->query($sql);
 
         if($result){
 
-            echo "<p>Los datos han sido actualizados con exito.</p> 
+            echo "<p>Los datos han sido Borrados con exito.</p> 
         
         <p><a href='javascript:history.go(-1)'>VOLVER ATRÁS</a></p> 
         
@@ -46,7 +43,7 @@ $result = $conn->query($sql);
 
         } else {
 
-            echo "<p>Los datos no han sido actualizados.</p> 
+            echo "<p>Los datos no han sido borrados.</p> 
         
         <p><a href='javascript:history.go(-1)'>VOLVER ATRÁS</a></p> 
         

@@ -1,8 +1,7 @@
-
 <html>
 
 <head>
-    <title>Actualizacion completada.</title>
+    <title>inserci&acuteo;n de datos.</title>
     <META name='robot' content='noindex, nofollow'>
 </head>
 
@@ -12,8 +11,8 @@
 // Actualizamos en funcion del id que recibimos
 
 $id = $_POST['id'];
-$titulo = $_POST['title'];
-$desc = $_POST['post'];
+$titulo = $_POST['titles'];
+$desc = $_POST['posts'];
 $fecha = date("Y-m-d H:i:s");
 
 $servername = "localhost";
@@ -31,28 +30,28 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql= " Update ".$tabla." Set title='".$titulo."',post='".$desc."',created_at='".$fecha."', updated_at='".$fecha."' where id='".$id."'";
+$sql= "INSERT INTO ".$tabla." (id, title,post,created_at,updated_at) VALUES('$id','$titulo','$desc','$fecha','$fecha')";
 
 $result = $conn->query($sql);
 
-        if($result){
+if($result){
 
-            echo "<p>Los datos han sido actualizados con exito.</p> 
+    echo "<p>Los datos han sido actualizados con exito.</p> 
         
         <p><a href='javascript:history.go(-1)'>VOLVER ATRÁS</a></p> 
         
         <p><a href='javascript:history.go(-2)'>INICIO</a></p> 
         ";
 
-        } else {
+} else {
 
-            echo "<p>Los datos no han sido actualizados.</p> 
+    echo "<p>Los datos no han sido actualizados.</p> 
         
         <p><a href='javascript:history.go(-1)'>VOLVER ATRÁS</a></p> 
         
         <p><a href='javascript:history.go(-2)'>INICIO</a></p> 
         ";
-        }
+}
 
 $conn->close();
 
